@@ -37,14 +37,14 @@ export default {
   },
   methods: {
     submitRecommendation() {
-      // Log the form data
+      
       console.log('Submitted Data:');
       console.log('Name:', this.name);
       console.log('Dish Name:', this.dishName);
       console.log('Dish Description:', this.dishDescription);
       console.log('Ingredients:', this.ingredients);
 
-      // Clear the form fields
+   
       this.name = '';
       this.dishName = '';
       this.dishDescription = '';

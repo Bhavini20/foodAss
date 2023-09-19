@@ -46,16 +46,16 @@ export default {
       this.formData.message = '';
     },
     initMap() {
-      // Coordinates for Khajaguda, Hyderabad
+      // Coordinates for Khajaguda (a place in Hyderabad India)
       const khajagudaLocation = { lat: 17.4105, lng: 78.3917 };
 
-      // Create a map centered at the specified location
+      
       this.map = new google.maps.Map(document.getElementById('map'), {
         center: khajagudaLocation,
-        zoom: 15, // Adjust the zoom level as needed
+        zoom: 15, 
       });
 
-      // Create a marker for the office location
+      
       const marker = new google.maps.Marker({
         position: khajagudaLocation,
         map: this.map,
@@ -74,18 +74,18 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: #f0f0f0; /* Set your desired background color */
+  background-color: #f0f0f0; 
 }
 
 .contact-heading {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #333; /* Set your desired text color */
+  color: #333; 
 }
 
 .form-container {
   width: 50%;
-  background-color: #fff; /* Set your desired form background color */
+  background-color: #fff; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -128,7 +128,7 @@ button:hover {
 
 .google-map {
   width: 70%;
-  height: 300px; /* Adjust the height as needed */
+  height: 300px; 
   margin-top: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;

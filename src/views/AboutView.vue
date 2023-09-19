@@ -1,7 +1,7 @@
 <template>
   <div class="about-container">
     <h2 class="about-heading">About Us</h2>
-    <!-- About Us Content -->
+
     <div class="about-content">
       <p>Welcome to FoodFrenzy, your ultimate food recommendation app! We are a passionate team of foodies, tech enthusiasts, and culinary experts who share a common love for great food and technology. Our mission is to simplify your dining decisions, making it easier for you to discover new culinary experiences and savor delicious meals.</p>
 
@@ -18,7 +18,7 @@
       <p>We are committed to helping you discover the joy of culinary exploration. With FoodFrenzy, you'll embark on a delicious adventure, one bite at a time. Our dedication to providing exceptional food recommendations drives us forward, and we look forward to sharing this journey with you.</p>
     </div>
     
-    <!-- YouTube Video -->
+  
     <div class="video-container">
       <iframe
         width="560"
@@ -35,12 +35,12 @@
 export default {
   data() {
     return {
-      // Extract the video ID from the URL
+     
       videoId: this.extractVideoIdFromUrl("https://www.youtube.com/watch?v=T4NOt727wqI"),
     };
   },
   computed: {
-    // Compute the embed URL with the extracted video ID
+    
     embedUrl() {
       return `https://www.youtube.com/embed/${this.videoId}`;
     },
@@ -51,7 +51,7 @@ export default {
       if (videoIdMatch) {
         return videoIdMatch[1];
       }
-      return ""; // Return an empty string if the video ID is not found
+      return ""; 
     },
   },
 };

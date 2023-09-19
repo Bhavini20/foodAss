@@ -8,7 +8,7 @@
   </body>
 
   <footer>
-    <!-- <Footerbar/> -->
+   
   </footer>
 </template>
 
