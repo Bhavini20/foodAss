@@ -24,10 +24,16 @@
 </template>
 
 <script>
-export default {
-  data() {
+
+
+  import axios from 'axios';
+
+
+export default{
+  data(){
     return {
       formData: {
+        _id: '',
         name: '',
         email: '',
         message: ''
@@ -38,12 +44,21 @@ export default {
     this.initMap();
   },
   methods: {
-    submitForm() {
-      console.log('Form submitted with data:', this.formData);
+    async submitForm() {
+      try {
+        console.log('Form submitted with data:', this.formData);
 
-      this.formData.name = '';
-      this.formData.email = '';
-      this.formData.message = '';
+        const response = await axios.post('http://localhost:8000/user/create', this.formData);
+
+        console.log('Response from server:', response.data);
+
+        this.formData.name = '';
+        this.formData.email = '';
+        this.formData.message = '';
+      } 
+      catch (error) {
+        console.error('Error submitting form:', error);
+      }
     },
     initMap() {
       // Coordinates for Khajaguda (a place in Hyderabad India)

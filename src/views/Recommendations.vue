@@ -5,19 +5,19 @@
     <form @submit.prevent="submitRecommendation">
       <div class="form-group">
         <label for="name">Your Name:</label>
-        <input type="text" id="name" v-model="name" required />
+        <input type="text" id="name" v-model="formData.name" required />
       </div>
       <div class="form-group">
         <label for="dishName">Dish Name:</label>
-        <input type="text" id="dishName" v-model="dishName" required />
+        <input type="text" id="dishName" v-model="formData.dish" required />
       </div>
       <div class="form-group">
         <label for="dishDescription">Dish Description (Short):</label>
-        <textarea id="dishDescription" v-model="dishDescription" rows="4" required></textarea>
+        <textarea id="dishDescription" v-model="formData.desc" rows="4" required></textarea>
       </div>
       <div class="form-group">
         <label for="ingredients">Ingredients:</label>
-        <textarea id="ingredients" v-model="ingredients" rows="4" required></textarea>
+        <textarea id="ingredients" v-model="formData.ingredients" rows="4" required></textarea>
       </div>
       <button type="submit">Submit</button>
     </form>
@@ -26,31 +26,43 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
   data() {
-    return {
+  return {
+    formData: {
+      _id: '',
       name: '',
-      dishName: '',
-      dishDescription: '',
+      dish: '',
+      desc: '',
       ingredients: ''
-    };
-  },
-  methods: {
-    submitRecommendation() {
-      
-      console.log('Submitted Data:');
-      console.log('Name:', this.name);
-      console.log('Dish Name:', this.dishName);
-      console.log('Dish Description:', this.dishDescription);
-      console.log('Ingredients:', this.ingredients);
-
-   
-      this.name = '';
-      this.dishName = '';
-      this.dishDescription = '';
-      this.ingredients = '';
     }
+  };
+},
+  methods: {
+    async submitRecommendation() {
+
+      try {
+        console.log('Form submitted with data:', this.formData);
+
+        const response = await axios.post('http://localhost:8000/user/createReco', this.formData);
+
+        console.log('Response from server:', response.data);
+
+        this.formData.name = '';
+        this.formData.dish = '';
+        this.formData.desc = '';
+        this.formData.ingredients = '';
+      }
+
+      catch (error) {
+        console.error('Error submitting form:', error);
+   }
+
   }
+}
 };
 </script>
 
